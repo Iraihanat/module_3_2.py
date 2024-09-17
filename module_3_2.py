@@ -38,11 +38,9 @@ send_email('Напоминаю самому себе о вебинаре', 'urba
 
 
 def send_email(message, recipient, sender="university.help@gmail.com"):
-    if ("@" not in str(message) and "@" not in str(recipient)):
-        print(f"Невозможно отправить письмо с адреса {sender} на адрес {recipient}.")
-    if ".com" not in str(recipient) and ".ru" not in str(recipient) and ".net" not in str(recipient):
-        print(f"Невозможно отправить письмо с адреса {sender} на адрес {recipient}.")
-    if ".com" not in str(sender) and ".ru" not in str(sender) and ".net" not in str(sender):
+    if (("@" not in str(message) and "@" not in str(recipient)) 
+        or ( ".com" not in str(recipient) and ".ru" not in str(recipient) and ".net" not in str(recipient))        
+        or ( ".com" not in str(sender) and ".ru" not in str(sender) and ".net" not in str(sender))):
         print(f"Невозможно отправить письмо с адреса {sender} на адрес {recipient}.")
 
     elif sender == recipient:
